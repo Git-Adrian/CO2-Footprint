@@ -52,9 +52,9 @@ header img {
 } 
 
 .social-icons img {
-    max-width: 25px; 
+    max-width: 30px; 
     height: auto;
-    margin-right: 8px;  
+    margin-right: 4px;  
 }
 
 .search-bar {
@@ -71,12 +71,7 @@ input[type="text"] {
     background-color: rgba(255, 255, 255, 0.5);
     color: black;
     font-size: 16px;
-}
-
-main {
-    flex: 1;
-    padding: 20px;
-}
+} 
 
 nav {
     background-color: #333;
@@ -121,8 +116,7 @@ section {
 } 
 
 section p {
-    border-radius: 5px;  
-    /*padding: 10px;  */
+    border-radius: 5px; 
     margin-bottom: 15px;     
 }
 

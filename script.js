@@ -83,6 +83,14 @@ function updateChart() {
         };
     });
 
+    // Hier wird die Filterung basierend auf den Eingabewerten der Filterfelder angewendet
+    var countryFilter = document.getElementById('countryFilter').value.toUpperCase();
+    var companyFilter = document.getElementById('companyFilter').value.toUpperCase();
+
+    chartData = chartData.filter(function (entry) {
+        return entry.country.toUpperCase().includes(countryFilter) && entry.company.toUpperCase().includes(companyFilter);
+    });
+
      // Bestimme die aktuelle Sortierrichtung der Tabelle
      var currentSortColumn = Array.from(table.querySelectorAll('.sortable')).findIndex(column => {
         return column.querySelector('.sort-arrow').style.display !== 'none';
