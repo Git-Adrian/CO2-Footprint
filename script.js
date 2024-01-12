@@ -213,8 +213,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 labels: data.map(entry => `${entry.country} - ${entry.company}`),
                 datasets: [{
                     label: 'CO₂-Emissionen (in Millionen Tonnen)',
-                    backgroundColor: data.map(entry => 'rgba(75, 192, 192, 0.2)'),
-                    borderColor: data.map(entry => 'rgba(75, 192, 192, 1)'),
+                    backgroundColor: data.map(entry => '#4CAF50'),
+                    borderColor: data.map(entry => '#4CAF50'),
                     borderWidth: 1,
                     data: data.map(entry => entry.emissions)
                 }]
@@ -230,8 +230,8 @@ document.addEventListener('DOMContentLoaded', function () {
         labels: data.map(entry => `${entry.country} - ${entry.company}`),
         datasets: [{
             label: 'CO₂-Emissionen (in Millionen Tonnen)',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: '#4CAF50',
+            borderColor: '#4CAF50',
             borderWidth: 1,
             data: data.map(entry => entry.emissions)
         }]
