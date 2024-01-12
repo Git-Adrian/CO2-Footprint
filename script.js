@@ -56,8 +56,90 @@ function sortTable(column) {
                 rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
                 switching = true;
             }
-        }
+        } 
     }
+    updateChart(); // Hier rufen wir die Funktion auf, um das Diagramm zu aktualisieren
+}
+
+function updateChart() {
+    // Daten für das Diagramm direkt aus der sortierten Tabelle extrahieren
+    var table = document.getElementById("emissionTable");
+    var tableRows = table.querySelectorAll("tbody tr");
+
+    var chartData = Array.from(tableRows).map(function (row, index) {
+        var cells = row.querySelectorAll("td");
+        var isSelected = row.classList.contains('selected-row');
+
+        // Hervorhebung in der Tabelle beibehalten
+        if (isSelected) {
+            row.classList.add('selected-row');
+        }
+
+        return {
+            country: cells[0].textContent.trim(),
+            company: cells[1].textContent.trim(),
+            emissions: parseFloat(cells[2].textContent.trim()),
+            selected: isSelected
+        };
+    });
+
+     // Bestimme die aktuelle Sortierrichtung der Tabelle
+     var currentSortColumn = Array.from(table.querySelectorAll('.sortable')).findIndex(column => {
+        return column.querySelector('.sort-arrow').style.display !== 'none';
+    });
+
+   // Sortiere das chartData-Array entsprechend der Sortierrichtung
+   chartData.sort(function (a, b) {
+    // Anpassung der Sortierung nach "country" und "company"
+    var valueA, valueB;
+
+    if (currentSortColumn === 0) {
+        // Sortiere nach "country"
+        valueA = a.country.toLowerCase();
+        valueB = b.country.toLowerCase();
+    } else if (currentSortColumn === 1) {
+        // Sortiere nach "company"
+        valueA = a.company.toLowerCase();
+        valueB = b.company.toLowerCase();
+    } else {
+        // Standard: Sortiere nach "emissions"
+        valueA = a.emissions;
+        valueB = b.emissions;
+    }
+
+    // Bestimme die Sortierrichtung (aufsteigend oder absteigend)
+    var isAscending = sortDirection[currentSortColumn] === 1;
+
+    return isAscending ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
+});
+
+    // Chart-Instanz löschen
+    myChart.destroy();
+
+    // Neues Diagramm erstellen
+    myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: chartData.map(function (entry) {
+                return entry.country + " - " + entry.company;
+            }),
+            datasets: [{
+                label: 'CO₂-Emissionen (in Millionen Tonnen)',
+                data: chartData.map(function (entry) {
+                    return entry.emissions;
+                }),
+                backgroundColor: chartData.map(function (entry) {
+                    return entry.selected ? 'rgba(255, 0, 0, 0.8)' : 'rgba(75, 192, 192, 0.2)';
+                }),
+                borderColor: chartData.map(function (entry) {
+                    return entry.selected ? 'rgba(255, 0, 0, 1)' : 'rgba(75, 192, 192, 1)';
+                }),
+                borderWidth: 1
+            }]
+        },
+         
+    });
+    console.log(data);
 }
 
 // Funktion zum Filtern der Tabelle basierend auf Eingabewerten
@@ -93,3 +175,91 @@ document.addEventListener('DOMContentLoaded', function () {
     countryFilter.addEventListener('input', filterTable);
     companyFilter.addEventListener('input', filterTable);
 }); 
+ 
+    // Initialisierung der CO₂-Emissionsdaten für das Diagramm
+    var data = []; 
+    // CO₂-Emissionsdaten für das Diagramm
+    var ctx = document.getElementById('emissionChart').getContext('2d');
+    var myChart;
+    
+    // Zugriff auf die Tabelle
+    var table = document.getElementById("emissionTable");
+    var tableRows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+    // Durchlaufen der Tabellenzeilen und Extrahieren der Daten
+    for (var i = 0; i < tableRows.length; i++) {
+    var cells = tableRows[i].getElementsByTagName('td');
+    
+    // Extrahieren der Werte aus den Zellen und Hinzufügen zum data-Array
+    var country = cells[0].textContent.trim();
+    var company = cells[1].textContent.trim();
+    var emissions = parseFloat(cells[2].textContent.trim());
+
+    data.push({
+        country: country,
+        company: company,
+        emissions: emissions
+    });
+}
+
+    // Erstellen des Balkendiagramms beim Laden der Seite
+    createChart();
+    createTable();
+
+    function createChart() {
+        myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: data.map(entry => `${entry.country} - ${entry.company}`),
+                datasets: [{
+                    label: 'CO₂-Emissionen (in Millionen Tonnen)',
+                    backgroundColor: data.map(entry => 'rgba(75, 192, 192, 0.2)'),
+                    borderColor: data.map(entry => 'rgba(75, 192, 192, 1)'),
+                    borderWidth: 1,
+                    data: data.map(entry => entry.emissions)
+                }]
+            }, 
+        });
+    }
+ 
+    // Canvas-Element für das Diagramm
+    var ctx = document.getElementById('emissionChart').getContext('2d');
+
+    // Daten für das Balkendiagramm
+    var chartData = {
+        labels: data.map(entry => `${entry.country} - ${entry.company}`),
+        datasets: [{
+            label: 'CO₂-Emissionen (in Millionen Tonnen)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1,
+            data: data.map(entry => entry.emissions)
+        }]
+    };
+
+    // Konfiguration für das Balkendiagramm
+    var chartOptions = {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        },
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    title: (tooltipItem) => data[tooltipItem[0].dataIndex].company,
+                    label: (tooltipItem) => `Land: ${data[tooltipItem.dataIndex].country}, Emissionen: ${tooltipItem.formattedValue} Millionen Tonnen`
+                }
+            }
+        }  
+    };
+
+    // Erstellen des Balkendiagramms
+    var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: chartData,
+        options: chartOptions
+    });
+ 
+
+  

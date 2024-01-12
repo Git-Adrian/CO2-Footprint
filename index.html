@@ -10,6 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>CO₂-Footprint Webseite</title> 
 </head>
 <body>
@@ -109,7 +110,7 @@
     <!-- Ende des Carousels -->
 
     <section id="emissionData">
-        <h2>CO₂-Emissionsdaten</h2> 
+        <h2>CO₂-Emissionsdaten</h2>  
         <table id="emissionTable">
             <input type="text" id="countryFilter" placeholder="Land">
             <input type="text" id="companyFilter" placeholder="Unternehmen"> 
@@ -123,91 +124,92 @@
             <tbody>
                 <tr>
                     <td>China</td>
-                    <td>ABCQRS Company</td>
+                    <td>A Company</td>
                     <td>232</td>
                 </tr>
                 <tr>
                     <td>USA</td>
-                    <td>XYZ Corporation</td>
+                    <td>B Corporation</td>
                     <td>103</td>
                 </tr>
                 <tr>
                     <td>Russland</td>
-                    <td>XYZ Company</td>
+                    <td>C Company</td>
                     <td>142</td>
                 </tr>
                 <tr>
                     <td>Deutschland</td>
-                    <td>HIJ Corporation</td>
+                    <td>D Corporation</td>
                     <td>100</td>
                 </tr>
                 <tr>
                     <td>China</td>
-                    <td>ABC Company</td>
+                    <td>E Company</td>
                     <td>223</td>
                 </tr>
                 <tr>
                     <td>USA</td>
-                    <td>XYZ Corporation</td>
+                    <td>F Corporation</td>
                     <td>134</td>
                 </tr>
                 <tr>
                     <td>China</td>
-                    <td>ABC Company</td>
+                    <td>G Company</td>
                     <td>192</td>
                 </tr>
                 <tr>
                     <td>USA</td>
-                    <td>XYZ Corporation</td>
+                    <td>H Corporation</td>
                     <td>65</td>
                 </tr>
                 <tr>
                     <td>China</td>
-                    <td>ABC Company</td>
+                    <td>I Company</td>
                     <td>123</td>
                 </tr>
                 <tr>
                     <td>USA</td>
-                    <td>XYZ Corporation</td>
+                    <td>J Corporation</td>
                     <td>176</td>
                 </tr> 
                 <tr>
                     <td>China</td>
-                    <td>ABC Company</td>
+                    <td>K Company</td>
                     <td>211</td>
                 </tr>
                 <tr>
                     <td>USA</td>
-                    <td>XYZ Corporation</td>
+                    <td>L Corporation</td>
                     <td>100</td>
                 </tr>
                 <tr>
                     <td>China</td>
-                    <td>ABC Company</td>
+                    <td>M Company</td>
                     <td>112</td>
                 </tr>
                 <tr>
                     <td>USA</td>
-                    <td>KMLN Corporation</td>
+                    <td>M Corporation</td>
                     <td>172</td>
                 </tr>
                 <tr>
                     <td>China</td>
-                    <td>ABCDEF Company</td>
+                    <td>O Company</td>
                     <td>157</td>
                 </tr>
                 <tr>
                     <td>USA</td>
-                    <td>XYZ Corporation</td>
+                    <td>P Corporation</td>
                     <td>152</td>
                 </tr>
                 <tr>
                     <td>Japan</td>
-                    <td>ABCDE Company</td>
+                    <td>Q Company</td>
                     <td>132</td>
                 </tr> 
             </tbody>
         </table>
+        <canvas id="emissionChart"></canvas>
     </section>
 
     <footer class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -222,6 +224,6 @@
             </ul>
         </div>
     </footer> 
-    <script src="script.js"></script>    
+    <script src="script.js"></script>   
 </body>
 </html>
