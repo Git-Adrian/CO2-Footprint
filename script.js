@@ -129,10 +129,10 @@ function updateChart() {
                     return entry.emissions;
                 }),
                 backgroundColor: chartData.map(function (entry) {
-                    return entry.selected ? 'rgba(255, 0, 0, 0.8)' : 'rgba(75, 192, 192, 0.2)';
+                    return entry.selected ? 'rgba(255, 0, 0, 1)' : '#4CAF50';
                 }),
                 borderColor: chartData.map(function (entry) {
-                    return entry.selected ? 'rgba(255, 0, 0, 1)' : 'rgba(75, 192, 192, 1)';
+                    return entry.selected ? 'rgba(255, 0, 0, 1)' : '#4CAF50';
                 }),
                 borderWidth: 1
             }]
