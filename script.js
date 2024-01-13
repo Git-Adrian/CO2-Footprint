@@ -137,10 +137,10 @@ function updateChart() {
                     return entry.emissions;
                 }),
                 backgroundColor: chartData.map(function (entry) {
-                    return entry.selected ? 'rgba(255, 0, 0, 1)' : '#4CAF50';
+                    return entry.selected ? 'rgba(255, 0, 0, 1)' : 'rgba(76, 175, 80, 0.5)';
                 }),
                 borderColor: chartData.map(function (entry) {
-                    return entry.selected ? 'rgba(255, 0, 0, 1)' : '#4CAF50';
+                    return entry.selected ? 'rgba(255, 0, 0, 1)' : 'rgba(76, 175, 80, 1)';
                 }),
                 borderWidth: 1
             }]
@@ -169,6 +169,8 @@ function filterTable() {
         // Überprüfung, ob die Zeile den Filterkriterien entspricht
         row.style.display = (countryCell.indexOf(countryValue) > -1 && companyCell.indexOf(companyValue) > -1) ? '' : 'none';
     }
+    // Aktualisiere das Diagramm nach der Filterung
+    updateChart();
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -221,8 +223,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 labels: data.map(entry => `${entry.country} - ${entry.company}`),
                 datasets: [{
                     label: 'CO₂-Emissionen (in Millionen Tonnen)',
-                    backgroundColor: data.map(entry => '#4CAF50'),
-                    borderColor: data.map(entry => '#4CAF50'),
+                    backgroundColor: data.map(entry => 'rgba(76, 175, 80, 0.5)'),
+                    borderColor: data.map(entry => 'rgba(76, 175, 80, 1)'),
                     borderWidth: 1,
                     data: data.map(entry => entry.emissions)
                 }]
@@ -238,8 +240,8 @@ document.addEventListener('DOMContentLoaded', function () {
         labels: data.map(entry => `${entry.country} - ${entry.company}`),
         datasets: [{
             label: 'CO₂-Emissionen (in Millionen Tonnen)',
-            backgroundColor: '#4CAF50',
-            borderColor: '#4CAF50',
+            backgroundColor: 'rgba(76, 175, 80, 0.5)',
+            borderColor: 'rgba(76, 175, 80, 1)',
             borderWidth: 1,
             data: data.map(entry => entry.emissions)
         }]
