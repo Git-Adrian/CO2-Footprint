@@ -167,6 +167,19 @@ th {
     color: #333;  
 }
 
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+}
+
+table {
+    width: 80%;  
+    border-collapse: collapse;
+    margin: 0 auto;  
+}
+
 footer {
     text-align: center;
     padding: 10px 20px;
