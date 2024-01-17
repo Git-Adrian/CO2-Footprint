@@ -23,14 +23,21 @@ header {
 
 .logo {
     flex: 1; 
-    display: flex;
+    display: flex; 
+    flex-direction: column;
     align-items: center;
 }    
  
 .logo img {
-    width: 600px; 
+    width: 100px; 
     height: auto; 
-    margin-left: 20px;  
+    margin-left: 10px;   
+}
+
+.logo-text {
+    font-size: 44px;
+    font-weight: bold;
+    color: rgba(76, 175, 80); 
 }
 
 header img {
@@ -39,16 +46,12 @@ header img {
     height: auto; 
     margin: 0; 
 }  
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
- 
+  
 .social-icons {
-    display: flex; 
-    gap: 5px;    /* Abstand zwischen den Icons */
+    display: left; 
+    gap: 5px;  
+    justify-content: center; 
+    align-items: center;  
 } 
 
 .social-icons img {
@@ -59,8 +62,8 @@ header img {
 
 .search-bar {
     display: flex;
-    align-items: center;
-    gap: 5px;
+    align-items: center; 
+    margin-right: auto;
 }
 
 #searchInput {
