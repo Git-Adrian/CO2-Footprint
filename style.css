@@ -165,20 +165,7 @@ th {
 /* Hinzufügen von Hover-Stilen für Tabellenspalten */
 #emissionTable tbody tr:hover td {
     color: #333;  
-}
-
-.table-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%; 
-}
-
-table {
-    width: 80%;  
-    border-collapse: collapse;
-    margin: 0 auto;  
-}
+} 
 
 footer {
     text-align: center;
