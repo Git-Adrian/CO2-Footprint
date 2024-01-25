@@ -59,31 +59,7 @@ header img {
     height: auto;
     margin-right: 2px;  
 }
-
-.search-bar {
-    display: flex;
-    align-items: center; 
-    margin-right: auto;
-}
-
-#searchInput {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-input[type="text"] {
-    padding: 8px;
-    margin: 5px; 
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
-    color: black;
-    font-size: 16px;
-} 
-
+ 
 nav {
     background-color: #333;
     color: #fff;
@@ -112,14 +88,15 @@ nav a {
     transition: color 0.3s ease-in-out;
     border: 1px solid transparent;  
 }
+
+.home-link {
+    background-color: #4CAF50; 
+    color: white;
+}
   
 nav a:hover {
-    color: #f8b400;
+    color: green;
     border-color: #fff
-}
-
-nav .nav-item.active a {
-    background-color: #4CAF50;  
 }
  
 section {
@@ -147,8 +124,7 @@ th, td {
     border: 1px solid #ddd;
     color: Black;
     padding: 8px;
-    text-align: left; 
-    /*border-radius: 5px; abgerundete Ecken*/
+    text-align: left;  
 }
 
 th {

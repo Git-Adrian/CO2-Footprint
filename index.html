@@ -29,25 +29,31 @@
     </header>
  
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark flex column" style="direction:ltr;"> 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item activate">
-                    <a class="nav-link" href="#home-carousel" data-target="#carouselExample" data-slide-to="0">Home</a>
+            <ul class="nav nav-pills nav-fill">
+                <li class="nav-item">
+                    <a class="nav-link home-link" aria-current="page" href="#home-carousel" data-target="#carouselExample" data-slide-to="0">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#mission-carousel" data-target="#carouselExample" data-slide-to="1">Mission</a>
-                </li>
+                </li> 
                 <li class="nav-item">
-                    <a class="nav-link" href="#projects-carousel" data-target="#carouselExample" data-slide-to="2">Projekte</a>
+                    <a class="nav-link" href="#news-carousel" data-target="#carouselExample" data-slide-to="2">News</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#contact-carousel" data-target="#carouselExample" data-slide-to="3">Kontakt</a>
-                </li>  
-            </ul> 
-        </div>
+                </li>
+            </ul>
+        </div> 
+        <!--Suchformular in der Navbar-->    
+        <form class="d-flex" role="search">
+            <input class="form-control me-auto" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> 
     </nav> 
       
       <!-- Bootstrap Carousel für Sektionen -->
@@ -74,36 +80,48 @@
                         Auswirkungen von CO₂-Emissionen besser zu verstehen.</p>
                 </section>
             </div>
-
+ 
             <div class="carousel-item">
-                <section id="projects-carousel">
-                    <h1>Unsere Projekte</h1>
-                    <p>Hier erfahren Sie mehr über die verschiedenen Projekte, an denen wir beteiligt sind.</p>
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Projekte</th>
-                                    <th>Beschreibung</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Projekt: Nachhaltige Energie</td>
-                                    <td>
-                                        Entwicklung erneuerbarer Energiequellen, um den CO₂-Ausstoß zu reduzieren und eine nachhaltige 
-                                        Energiezukunft zu schaffen.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Projekt: Grüne Städte</td>
-                                    <td>
-                                       Umwandlung von städtischen Gebieten in grüne und nachhaltige Lebensräume durch Baumpflanzungen, 
-                                       Gründächer und umweltfreundliche Infrastrukturen.
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <section id="news-carousel">
+                    <h1>Aktuelle Neuigkeiten zum Klimawandel</h1>
+                    <p>Hier finden Sie die neuesten Nachrichten und Entwicklungen im Bereich Klimawandel.</p>
+            
+                    <div class="card-deck">
+                        <!-- Fiktive Nachricht 1 -->
+                        <div class="card">
+                            <img src="Bilder/Erneuerbare Energien.jpeg" class="card-img-top" alt="News Image 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Durchbruch in erneuerbarer Energie</h5>
+                                <p class="card-text">Forscher entdecken einen revolutionären Weg, erneuerbare Energiequellen effizienter zu nutzen und den CO₂-Ausstoß zu minimieren.</p>
+                            </div>
+                        </div>
+            
+                        <!-- Fiktive Nachricht 2 -->
+                        <div class="card">
+                            <img src="Bilder/News_Bild2.jpeg" class="card-img-top" alt="News Image 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Nachhaltige Innovationen in der Automobilbranche</h5>
+                                <p class="card-text">Autohersteller präsentieren umweltfreundliche Fahrzeuge mit reduziertem CO₂-Ausstoß, während sie sich verstärkt auf nachhaltige Mobilität konzentrieren.</p>
+                            </div>
+                        </div>
+            
+                        <!-- Fiktive Nachricht 3 -->
+                        <div class="card">
+                            <img src="Bilder/News_Bild3.png" class="card-img-top" alt="News Image 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Globale Zusammenarbeit gegen CO₂-Ausstoß</h5>
+                                <p class="card-text">Länder auf der ganzen Welt schließen sich zusammen, um gemeinsam Maßnahmen gegen den CO₂-Ausstoß zu ergreifen und globale Klimaziele zu erreichen.</p>
+                            </div>
+                        </div>
+            
+                        <!-- Fiktive Nachricht 4 -->
+                        <div class="card">
+                            <img src="Bilder/News_Bild3.jpg" class="card-img-top" alt="News Image 4">
+                            <div class="card-body">
+                                <h5 class="card-title">Technologische Innovationen gegen den Klimawandel</h5>
+                                <p class="card-text">Innovationen in Technologie und Wissenschaft bieten vielversprechende Lösungen zur Bewältigung der Herausforderungen des Klimawandels.</p>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -119,7 +137,7 @@
                         auf unseren Planeten ausüben.</p>
                 </section>
             </div>
-
+ 
         </div>
         <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -194,27 +212,7 @@
                     <td>Russland</td>
                     <td>J Corporation</td>
                     <td>176</td>
-                </tr> 
-                <tr>
-                    <td>China</td>
-                    <td>K Company</td>
-                    <td>211</td>
-                </tr>
-                <tr>
-                    <td>USA</td>
-                    <td>L Corporation</td>
-                    <td>100</td>
-                </tr>
-                <tr>
-                    <td>China</td>
-                    <td>M Company</td>
-                    <td>112</td>
-                </tr>
-                <tr>
-                    <td>USA</td>
-                    <td>M Corporation</td>
-                    <td>172</td>
-                </tr> 
+                </tr>  
             </tbody>
         </table>
         <canvas id="emissionChart"></canvas>
