@@ -67,17 +67,18 @@ function filterTable() {
     var table = document.getElementById('emissionTable');
     var rows = table.getElementsByTagName('tr');
 
-    var countryValue = countryFilter.value.toUpperCase();
-    var companyValue = companyFilter.value.toUpperCase();
+    var countryValue = countryFilter.value.toLowerCase();
+    var companyValue = companyFilter.value.toLowerCase();
 
     // Iteriere über die Zeilen der Tabelle
     for (var i = 1; i < rows.length; i++) {
         var row = rows[i];
-        var countryCell = row.cells[0].textContent.toUpperCase();
-        var companyCell = row.cells[1].textContent.toUpperCase();
+        var countryCell = row.cells[0].textContent.toLowerCase();
+        var companyCell = row.cells[1].textContent.toLowerCase();
 
         // Überprüfung, ob die Zeile den Filterkriterien entspricht
-        row.style.display = (countryCell.indexOf(countryValue) > -1 && companyCell.indexOf(companyValue) > -1) ? '' : 'none';
+        row.style.display = (countryCell.indexOf(countryValue) === 0 && 
+                            companyCell.indexOf(companyValue) === 0) ? '' : 'none';
     }
     // Aktualisiere das Diagramm nach der Filterung
     updateChart();
