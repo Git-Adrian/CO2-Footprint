@@ -61,9 +61,8 @@ function updateChart() {
         }
 
         return {
-            country: cells[0].textContent.trim(),
-            company: cells[1].textContent.trim(),
-            emissions: parseFloat(cells[2].textContent.trim()),
+            country: cells[0].textContent.trim(), 
+            emissions: parseFloat(cells[1].textContent.trim()),
             selected: isSelected
         };
     });

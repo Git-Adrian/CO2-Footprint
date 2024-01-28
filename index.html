@@ -10,7 +10,6 @@
     <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>   
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>CO₂-Footprint Webseite</title> 
 </head>
 <body>
@@ -151,71 +150,109 @@
     <!-- Ende des Carousels -->
 
     <section id="emissionData">
-        <h2>CO₂-Emissionsdaten</h2>  
-        <table id="emissionTable">
+        <h2>CO₂-Emissionsdaten der Länder und Unternehmen</h2>  
+        <table id="emissionTable"> 
             <input type="text" id="countryFilter" placeholder="Land">
             <input type="text" id="companyFilter" placeholder="Unternehmen"> 
+        <div class="checkbox-container">
+            <div>
+                <input type="checkbox" id="filterByCountryCheckbox" checked>
+                <label for="filterByCountryCheckbox">Filtern nach Ländern</label>
+            </div>
+            <div>
+                <input type="checkbox" id="filterByCompanyCheckbox" checked>
+                <label for="filterByCompanyCheckbox">Filtern nach Unternehmen</label>
+            </div>
+        </div>    
             <thead>
                 <tr>
-                    <th onclick="sortTable(0)"class="sortable">Land<span class="sort-arrow"></span></th>
-                    <th onclick="sortTable(1)"class="sortable">Unternehmen<span class="sort-arrow"></span></th>
-                    <th onclick="sortTable(2)"class="sortable">CO₂-Emissionen (in Millionen Tonnen)<span class="sort-arrow"></span></th>
+                    <th onclick="sortTable(0)"class="sortTable">Länder und Unternehmen<span class="sort-arrow"></span></th> 
+                    <th>CO₂-Emissionen (in Millionen Tonnen pro Jahr)<span class="sort-arrow"></span></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>China</td>
-                    <td>A Company</td>
-                    <td>232</td>
+                    <td class="country">China</td>  
+                    <td class="emissionsDataCountry">232,36</td>
                 </tr>
                 <tr>
-                    <td>Korea</td>
-                    <td>B Company</td>
-                    <td>103</td>
+                    <td class="country">Russland</td> 
+                    <td class="emissionsDataCountry">201,27</td>
+                </tr>
+                <tr> 
+                    <td class="company">A-Company</td>
+                    <td class="emissionsDataCompany">142,21</td>
                 </tr>
                 <tr>
-                    <td>Russland</td>
-                    <td>C Company</td>
-                    <td>142</td>
+                    <td class="country">Deutschland</td> 
+                    <td class="emissionsDataCountry">100,97</td>
                 </tr>
                 <tr>
-                    <td>Deutschland</td>
-                    <td>D Company</td>
-                    <td>100</td>
+                    <td class="country">Japan</td> 
+                    <td class="emissionsDataCountry">223,27</td>
                 </tr>
                 <tr>
-                    <td>Japan</td>
-                    <td>E Company</td>
-                    <td>223</td>
+                    <td class="company">B-Company</td> 
+                    <td class="emissionsDataCompany">134,27</td>
+                </tr>
+                <tr> 
+                    <td class="company">C-Company</td>
+                    <td class="emissionsDataCompany">192,21</td>
                 </tr>
                 <tr>
-                    <td>Kanada</td>
-                    <td>F Company</td>
-                    <td>134</td>
+                    <td class="country">USA</td> 
+                    <td class="emissionsDataCountry">165,27</td>
+                </tr>
+                <tr> 
+                    <td class="company">D-Company</td>
+                    <td class="emissionsDataCompany">123,21</td>
+                </tr>
+                <tr> 
+                    <td class="company">E-Company</td>
+                    <td  class="emissionsDataCompany">176,78</td>
                 </tr>
                 <tr>
-                    <td>Indien</td>
-                    <td>G Company</td>
-                    <td>192</td>
+                    <td class="country">Nordkorea</td>  
+                    <td class="emissionsDataCountry">232,36</td>
                 </tr>
                 <tr>
-                    <td>USA</td>
-                    <td>H Company</td>
-                    <td>65</td>
+                    <td class="country">Saudie-Arabien</td> 
+                    <td class="emissionsDataCountry">201,27</td>
+                </tr>
+                <tr> 
+                    <td class="company">F-Company</td>
+                    <td class="emissionsDataCompany">142,21</td>
                 </tr>
                 <tr>
-                    <td>Frankreich</td>
-                    <td>I Company</td>
-                    <td>123</td>
+                    <td class="country">Vereinigte Arabische Emirate</td> 
+                    <td class="emissionsDataCountry">100,97</td>
                 </tr>
                 <tr>
-                    <td>Saudi-Arabien</td>
-                    <td>J Company</td>
-                    <td>176</td>
-                </tr>  
+                    <td class="country">Indien</td> 
+                    <td class="emissionsDataCountry">223,27</td>
+                </tr>
+                <tr>
+                    <td class="company">G-Company</td> 
+                    <td class="emissionsDataCompany">134,27</td>
+                </tr>
+                <tr> 
+                    <td class="company">H-Company</td>
+                    <td  class="emissionsDataCompany">192,21</td>
+                </tr>
+                <tr>
+                    <td class="country">Südkorea</td> 
+                    <td class="emissionsDataCountry">165,27</td>
+                </tr>
+                <tr> 
+                    <td class="company">I-Company</td>
+                    <td  class="emissionsDataCompany">123,21</td>
+                </tr>
+                <tr> 
+                    <td class="company">J-Company</td>
+                    <td class="emissionsDataCompany">176,78</td>
+                </tr>    
             </tbody>
-        </table>
-        <canvas id="emissionChart"></canvas>
+        </table> 
     </section>
 
     <footer class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -231,6 +268,5 @@
         </div>
     </footer> 
     <script src="script.js"></script>   
-    <script src="chart.js"></script>   
 </body>
 </html>
