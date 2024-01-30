@@ -1,6 +1,7 @@
 var currentSortOrder = "country"; // Standardmäßig nach Land sortieren
  
  document.addEventListener("DOMContentLoaded", function() {
+    
     // Selektiere die Input-Felder und die Checkboxen
     var countryFilterInput = document.getElementById("countryFilter");
     var companyFilterInput = document.getElementById("companyFilter");

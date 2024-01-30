@@ -216,7 +216,7 @@ input[type="text"] {
 }
 
 .checkbox-container input:checked + label::after {
-    content: '\2714';  
+    content: '\2718';  
     font-size: 18px;
     color: #fff;  
     position: absolute;
